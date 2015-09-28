@@ -1,9 +1,9 @@
-//===== Hercules Script ========================================================
+//===== rAthena Script =========================================================
 //= Criatura Academy
 //===== By: ====================================================================
 //= Kisuka (1.0)
 //===== Current Version: =======================================================
-//= 1.0.1
+//= 2.0.0
 //===== File Encoding ==========================================================
 //= CP-949 (EUC-KR compatible). Do NOT read/save it as UTF-8.
 //===== Description: ===========================================================
@@ -12,6 +12,7 @@
 //===== Additional Comments: ===================================================
 //= 1.0.0 Initial Release. [Kisuka]
 //= 1.0.1 Converted item constants to IDs and added hair coupon. [Kisuka]
+//= 2.0.0 Converted from Hercules Script to rAthena Script. [Capuche]
 //==============================================================================
 
 // - Captain Carocc (Ship)
