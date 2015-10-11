@@ -49,7 +49,9 @@ CREATE TABLE IF NOT EXISTS `cashlog` (
 
 --
 -- Table structure for table `chatlog`
--- ChatLog types Gl(O)bal,(W)hisper,(P)arty,(G)uild,(M)ain chat
+--
+# ChatLog types
+# Gl(O)bal# (W)hisper# (P)arty# (G)uild# (M)ain chat
 
 CREATE TABLE IF NOT EXISTS `chatlog` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -113,17 +115,32 @@ CREATE TABLE IF NOT EXISTS `npclog` (
   INDEX (`char_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1;
 
-# PickLog types
-# (M)onsters Drop# (P)layers Drop/Take# Mobs Drop (L)oot Drop/Take
-# Players (T)rade Give/Take# Players (V)ending Sell/Take# (S)hop Sell/Take# (N)PC Give/Take
-# (C)onsumable Items# (A)dministrators Create/Delete# Sto(R)age# (G)uild Storage
-# (E)mail attachment# (B)uying Store# Pr(O)duced Items/Ingredients# Auct(I)oned Items
-# (X) Other# (D) Stolen from mobs# (U) MVP Prizes# (F) Guild/Party Bound retrieval
-# Lotter(Y)# (Z) Merged Items# (Q)uest
-
 --
 -- Table structure for table `picklog`
 --
+- PickLog types
+# (M)onsters Drop
+# (P)layers Drop/Take
+# Mobs Drop (L)oot Drop/Take
+# Players (T)rade Give/Take
+# Players (V)ending Sell/Take
+# (S)hop Sell/Take
+# (N)PC Give/Take
+# (C)onsumable Items
+# (A)dministrators Create/Delete
+# Sto(R)age
+# (G)uild Storage
+# (E)mail attachment
+# (B)uying Store
+# Pr(O)duced Items/Ingredients
+# Auct(I)oned Items
+# (X) Other
+# (D) Stolen from mobs
+# (U) MVP Prizes
+# (F) Guild/Party Bound retrieval
+# Lotter(Y)
+# (Z) Merged Items
+# (Q)uest
 
 CREATE TABLE IF NOT EXISTS `picklog` (
   `id` int(11) NOT NULL auto_increment,
@@ -147,8 +164,9 @@ CREATE TABLE IF NOT EXISTS `picklog` (
 --
 -- Table structure for table `zenylog`
 --
-# ZenyLog types (M)onsters,(T)rade,(V)ending Sell/Buy,(S)hop Sell/Buy,(N)PC Change amount,
-# (A)dministrators,(E)Mail,(B)uying Store,Ban(K) Transactions
+# ZenyLog types
+# (M)onsters# (T)rade# (V)ending Sell/Buy# (S)hop Sell/Buy# (N)PC Change amount
+# (A)dministrators# (E)Mail# (B)uying Store# Ban(K) Transactions
 
 CREATE TABLE IF NOT EXISTS `zenylog` (
   `id` int(11) NOT NULL auto_increment,
