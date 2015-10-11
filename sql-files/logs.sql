@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `npclog` (
 --
 -- Table structure for table `picklog`
 --
-- PickLog types
+# PickLog types
 # (M)onsters Drop
 # (P)layers Drop/Take
 # Mobs Drop (L)oot Drop/Take
