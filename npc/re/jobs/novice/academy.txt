@@ -204,7 +204,6 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 			mes "[Carocc]";
 			mes "I plan on taking off as soon as the repairs are complete.";
 			mes "The route will open with ^4d4dffPharos Lighthouse^000000 by then.";
-			close;
 		} else {
 			if (isbegin_quest(7471) == 2) {
 				if (!isbegin_quest(7472)) {
@@ -250,7 +249,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 						next;
 						cutin "tutorial02.bmp", 4;
 						mes "!- Information -!";
-						mes "Received a Quest from ^4d4dff Captain Carocc.";
+						mes "Received a Quest from ^4d4dffCaptain Carocc.";
 						mes "The quest content can be checked from the quest window.";
 						next;
 						mes "!- Information -!";
@@ -352,9 +351,8 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 					next;
 					mes "[Carocc]";
 					mes "I'll be taking off as soon as the repairs are complete.";
-					mes "At that time, the sailing route to ^4d4dffPharos lighthouse ^000000 will be opened.";
+					mes "At that time, the sailing route to ^4d4dffPharos lighthouse ^000000will be opened.";
 					mes "Be excited for it.";
-					close;
 				}
 			} else {
 				if (!isbegin_quest(7472)) {
@@ -368,7 +366,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 						mes "You look strong and able!";
 						mes "I like able people like you!";
 						mes "Always be healthy and strong as you are now.";
-						close;
+						break;
 					case 2:
 						mes "[Carocc]";
 						mes "I usually travel to ^4d4dffPharos Lighthouse^000000.";
@@ -376,7 +374,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 						next;
 						mes "[Carocc]";
 						mes "If it's Alberta or Byalan Island, talk to the next sailor.";
-						close;
+						break;
 					case 3:
 						mes "[Carocc]";
 						mes "Hmm? You said you didn't know what to do.";
@@ -496,7 +494,6 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 					mes "Do you by any chance need a ship?";
 					mes "I usually travel to the port in Paros.";
 					mes "If you need to go to Paros later, come see me.";
-					close;
 				}
 			}
 		}
@@ -518,22 +515,21 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 						mes "Let us travel with the wing in our hair.";
 						Zeny -= 2800;
 						close2;
-						cutin "", 255;
 						warp "cmd_fild07", 92, 129;
 						end;
 					} else {
 						mes "[Carocc]";
 						mes "Sorry but you are short of the boarding fee.";
 						mes "I need 2800z to operate.";
-						close;
 					}
+				} else {
+					mes "[Carocc]";
+					mes "OK.";
+					mes "Do you know this, by the way?";
+					mes "^4d4dffThere's a Rogue hideout at Pharos Lighthouse^000000.";
+					mes "You already knew this?";
 				}
-				mes "[Carocc]";
-				mes "OK.";
-				mes "Do you know this, by the way?";
-				mes "^4d4dffThere's a Rogue hideout at Pharos Lighthouse^000000.";
-				mes "You already knew this?";
-				close;
+				break;
 			case 2:
 				mes "[Carocc]";
 				mes "I thought you knew that I only go to Pharos?";
@@ -541,7 +537,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 				next;
 				mes "[Carocc]";
 				mes "There are plenty of other ships that travel to Alberta and Byalan Islands.";
-				close;
+				break;
 			case 3:
 				mes "[Carocc]";
 				mes "Hmm. I'm content with the well being of you and other adventurers who passed me by.";
@@ -549,7 +545,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 				mes "[Carocc]";
 				mes "Lumin must be doing well too.";
 				mes "I wonder why you feel like my own child even though we've only met from the sea.";
-				close;
+				break;
 			}
 		} else {
 			mes "[Carocc]";
@@ -569,21 +565,21 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 					mes "[Carocc]";
 					mes "Sorry but you are short of the boarding fee.";
 					mes "I need 2800z to operate.";
-					close;
 				}
+			} else {
+				mes "[Carocc]";
+				mes "Then use it next time.";
 			}
-			mes "[Carocc]";
-			mes "Then use it next time.";
-			close;
 		}
 	}
+	close2;
 	cutin "", 255;
 	end;
 
 OnInit:
 	questinfo 7472, QTYPE_QUEST, 1, Job_Novice;
-	//SetQuestLevel 7472 1 14
-	//SetQuestQuest 7472 7473 0
+	setquestinfo_level 7472,1,14;
+	setquestinfo_req 7472,7473,0;
 	end;
 
 OnTouch:
@@ -631,7 +627,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 			mes "It will do the automatic sorting per indiviaul useage to";
 			next;
 			mes "[Hun]";
-			mes "Either ^4d4dff double click on the item^000000 you intend to use";
+			mes "Either ^4d4dffdouble click on the item^000000 you intend to use";
 			mes "or drag it onto^4d4dff the equipment window and use it^000000";
 			next;
 			cutin "tutorial03.bmp", 4;
@@ -645,7 +641,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 			next;
 			cutin "", 255;
 			mes "[Hun]";
-			mes "For detailed info on individual items^4d4dff, right click ^000000 on that item.";
+			mes "For detailed info on individual items^4d4dff, right click ^000000on that item.";
 			mes "You can check the detailed info on the item.";
 			next;
 			cutin "tutorial04.bmp", 4;
@@ -683,7 +679,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 				mes "or drag it onto^4d4dff the equipment window and use it^000000";
 				next;
 				mes "[Hun]";
-				mes "For detailed info on individual items^4d4dff, right-click ^000000 on the item.";
+				mes "For detailed info on individual items^4d4dff, right-click ^000000on the item.";
 				mes "You can check the detailed info on the item.";
 				next;
 				cutin "tutorial04.bmp", 3;
@@ -758,7 +754,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 							emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
 							mes "[Information Staff]";
 							mes "Sorry to interrupt.";
-							mes "But ^4d4dff if you need location info, please ask me.^000000";
+							mes "But ^4d4dffif you need location info, please ask me.^000000";
 							next;
 							mes "[Information Staff]";
 							mes "Hun's information has limits";
@@ -780,7 +776,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 							emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
 							mes "[Information Staff]";
 							mes "Sorry to interrupt.";
-							mes "But ^4d4dff if you need location info, please ask me.^000000";
+							mes "But ^4d4dffif you need location info, please ask me.^000000";
 							next;
 							mes "[Information Staff]";
 							mes "Hun's information has limits";
@@ -800,7 +796,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 							mes "[Information Staff]";
 							mes "You are correct.";
 							mes "Preperation is the key.";
-							mes "But ^4d4dff if you need location info, please ask me.^000000";
+							mes "But ^4d4dffif you need location info, please ask me.^000000";
 							next;
 							mes "[Information Staff]";
 							mes "Hun's information has limits.";
@@ -834,7 +830,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 						emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
 						mes "[Information Staff]";
 						mes "Sorry to interrupt.";
-						mes "But ^4d4dff if you need location info, please ask me.^000000";
+						mes "But ^4d4dffif you need location info, please ask me.^000000";
 						next;
 						mes "[Information Staff]";
 						mes "Hun's information has limits";
@@ -856,7 +852,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 						emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
 						mes "[Information Staff]";
 						mes "Sorry to interrupt.";
-						mes "But ^4d4dff if you need location info, please ask me.^000000";
+						mes "But ^4d4dffif you need location info, please ask me.^000000";
 						next;
 						mes "[Information Staff]";
 						mes "Hun's information has limits";
@@ -876,7 +872,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 						mes "[Information Staff]";
 						mes "You are correct.";
 						mes "Preperation is the key.";
-						mes "But ^4d4dff if you need location info, please ask me.^000000";
+						mes "But ^4d4dffif you need location info, please ask me.^000000";
 						next;
 						mes "[Information Staff]";
 						mes "Hun's information has limits.";
@@ -904,7 +900,7 @@ izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
 
 OnInit:
 	questinfo 7473, QTYPE_QUEST, 1, Job_Novice;
-	//SetQuestLevel 7473 1 14
+	setquestinfo_level 7473,1,14;
 	end;
 
 OnTouch:
@@ -945,18 +941,18 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 			mes "If you receive information on a town or a city, a waypoint ^4d4dff+^000000 can be marked on the map.";
 			next;
 			mes "[Information Staff]";
-			mes "Press ^4d4dff [Ctrl] and [ ~ ] on your keyboard and you can see the world map^000000.";
+			mes "Press ^4d4dff[Ctrl] and [ ~ ] on your keyboard and you can see the world map^000000.";
 			next;
 			mes "[Information Staff]";
-			mes "Through the ^4d4dff world map you can check the location of you, your party members and the level of monsters in the area.^000000";
+			mes "Through the ^4d4dffworld map you can check the location of you, your party members and the level of monsters in the area.^000000";
 			next;
 			mes "[Information Staff]";
 			mes "This is useful info to remember.";
 			mes "Now then, should we play a simple game?";
 			next;
 			mes "[Information Staff]";
-			mes "I will ^4d4dff mark three specific locations on the mini-map.^000000";
-			mes "Please ^4d4dffvisit those locations ^000000 using the waypoints as reference.";
+			mes "I will ^4d4dffmark three specific locations on the mini-map.^000000";
+			mes "Please ^4d4dffvisit those locations ^000000using the waypoints as reference.";
 			next;
 			mes "[Information Staff]";
 			mes "Think of it as a treasure hunt and go.";
@@ -1002,7 +998,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						mes "you can go.";
 						next;
 						mes "[Information Staff]";
-						mes "Byalan Island is the scary place with ^8B4513 Izlude dungeon^000000 in it.";
+						mes "Byalan Island is the scary place with ^8B4513Izlude dungeon^000000 in it.";
 						mes "";
 						mes "Do you need additional directions?";
 						viewpoint 1, 197, 205, 1, 0xFFFF00;
@@ -1269,7 +1265,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						mes "you can go.";
 						next;
 						mes "[Information Staff]";
-						mes "Byalan Island is the scary place with ^8B4513 Izlude dungeon^000000 in it.";
+						mes "Byalan Island is the scary place with ^8B4513Izlude dungeon^000000 in it.";
 						mes "";
 						mes "Do you need additional directions?";
 						viewpoint 1, 197, 205, 1, 0xFFFF00;
@@ -1425,14 +1421,15 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 		}
 	}
 
-// OnInit:
-	// AddQuestInfo 7474 1 0
-	// SetQuestLevel 7474 1 14
-	// AddQuestInfo 7495 1 0
-	// SetQuestQuest 7495 7475 1
-	// SetQuestQuest 7495 7476 1
-	// SetQuestQuest 7495 7477 1
-	// end;
+OnInit:
+	questinfo 7474, QTYPE_QUEST, 1;
+	setquestinfo_level 7474,1,14;
+
+	// questinfo 7495, QTYPE_QUEST, 1;// officially disabled
+	// setquestinfo_req 7495,7475,1;
+	// setquestinfo_req 7495,7476,1;
+	// setquestinfo_req 7495,7477,1;
+	end;
 }
 
 izlude_a,120,207,4	duplicate(Information Staff#0)	Information Staff#a	8W_SOLDIER
@@ -1569,10 +1566,10 @@ izlude,179,75,3	script	Airship#iz	4_BULLETIN_BOARD2,3,3,{
 		close;
 	}
 
-// OnInit:
-	// AddQuestInfo 7475 0 0
-	// SetQuestQuest 7475 7474 1
-	// end;
+OnInit:
+	questinfo 7475, QTYPE_QUEST, 0;
+	setquestinfo_req 7475,7474,1;
+	end;
 
 OnTouch:
 	if (isbegin_quest(7474) == 1 && !isbegin_quest(7475))
@@ -1715,10 +1712,10 @@ izlude,207,167,3	script	Arena#iz	4_BULLETIN_BOARD2,3,3,{
 		close;
 	}
 
-// OnInit:
-	// AddQuestInfo 7476 0 0
-	// SetQuestQuest 7476 7474 1
-	// end;
+OnInit:
+	questinfo 7476, QTYPE_QUEST, 0;
+	setquestinfo_req 7476,7474,1;
+	end;
 
 OnTouch:
 	if (isbegin_quest(7474) == 1 && !isbegin_quest(7476))
@@ -1861,10 +1858,10 @@ izlude,45,94,3	script	Bulletin Board#iz	4_BULLETIN_BOARD2,3,3,{
 		close;
 	}
 
-// OnInit:
-	// AddQuestInfo 7477 0 0
-	// SetQuestQuest 7477 7474 1
-	// end;
+OnInit:
+	questinfo 7477, QTYPE_QUEST, 0;
+	setquestinfo_req 7477,7474,1;
+	end;
 
 OnTouch:
 	if (isbegin_quest(7474) == 1 && !isbegin_quest(7477))
@@ -1955,12 +1952,12 @@ iz_ac01,59,43,3	script	Therapist#ac	4_M_6THPRIN1,{
 			mes "Dragging the right hand corner at the shortcut window, you can open up more skill shortcut pages.";
 			next;
 			mes "[Therapist]";
-			mes "It is a simple use.. ^4d4dff Each slot responds to individual keys from F1 to F9^000000.";
+			mes "It is a simple use.. ^4d4dffEach slot responds to individual keys from F1 to F9^000000.";
 			mes "Needed skills or items can be immediately used after registering on the corresponding slots.";
 			next;
 			cutin "tutorial05.bmp", 4;
 			mes "!- Information -!";
-			mes "You can register needed items or skills at ^4d4dff shortcut slots by dragging the icons.";
+			mes "You can register needed items or skills at ^4d4dffshortcut slots by dragging the icons.";
 			next;
 			mes "!- Information -!";
 			mes "^4d4dff The registered items and equipment at^4d4dff the slots can be immediately used or armed by pressing the reponding F1 - F9 keys.";
@@ -2061,7 +2058,7 @@ iz_ac01,59,43,3	script	Therapist#ac	4_M_6THPRIN1,{
 			mes "You can ask him for help.";
 			next;
 			mes "[Therapist]";
-			mes "^4d4dffAlchemist^000000 or ^4d4dffBiochemist^000000 or the higher class job ^4d4dff Geneticist^000000 are all good at creating potions.";
+			mes "^4d4dffAlchemist^000000 or ^4d4dffBiochemist^000000 or the higher class job ^4d4dffGeneticist^000000 are all good at creating potions.";
 			next;
 			mes "[Therapist]";
 			mes "If you want to have a well-made potion, it may be a good idea to ask for a specialist.";
@@ -2075,10 +2072,13 @@ iz_ac01,59,43,3	script	Therapist#ac	4_M_6THPRIN1,{
 		close;
 	}
 
-// OnInit:
+OnInit:
+	questinfo 7478, QTYPE_QUEST, 0;
+	setquestinfo_req 7478,4269,1;// TODO! need more infos
+
 	// AddQuestInfo 7478 0 0
 	// SetQuestQuest 7478 4269 2
-	// end;
+	end;
 }
 
 iz_ac01_a,59,43,3	duplicate(Therapist#ac)	Therapist#ac_a	4_M_6THPRIN1
@@ -2092,15 +2092,16 @@ izlude,141,251,0	script	Cultivated Red Plant#0	1078,3,3,{
 	end;
 
 OnTouch:
-	if (isbegin_quest(7478) == 1 && !isbegin_quest(7479))
+	if (isbegin_quest(7478) == 1 && !isbegin_quest(7479)) {
+		specialeffect EF_STEAL;
+		emotion e_heh, 0, "Academy Student#"+strnpcinfo(2);
+		emotion e_gasp, 1;
 		donpcevent "Cultivated Red Plant#"+strnpcinfo(2)+"::OnDisable";
+	}
 	end;
 
 OnDisable:
-	specialeffect EF_STEAL;
 	disablenpc "Cultivated Red Plant#"+strnpcinfo(2);
-	emotion e_gasp, 1;
-	emotion e_heh, 0, "Academy Student#"+strnpcinfo(2);
 	initnpctimer;
 	end;
 
@@ -2218,10 +2219,10 @@ izlude,140,249,7	script	Academy Student#0	4_M_NOV_RUMIN,{
 	cutin "", 255;
 	end;
 
-// OnInit:
-	//AddQuestInfo 7479 1 0
-	//SetQuestQuest 7479 7478 1
-	// end;
+OnInit:
+	questinfo 7479, QTYPE_QUEST, 1;
+	setquestinfo_req 7479,7478,1;
+	end;
 }
 
 izlude_a,140,249,7	duplicate(Academy Student#0)	Academy Student#a	4_M_NOV_RUMIN
@@ -2534,7 +2535,7 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 					mes "Is that helpful?";
 					next;
 					if (select("Just a moment.", "I have to leave.") == 1) {
-						break;
+						continue;
 					} else {
 						if (Class == Job_Novice) {
 							mes "[Receptionist]";
@@ -2547,7 +2548,6 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 							close;
 						}
 					}
-					break;
 				case 2:
 					mes "[Receptionist]";
 					mes "Left-Click your mouse on the name of the trainer you are looking for and I will give guide you to them.";
@@ -2566,7 +2566,7 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 					mes "Is that helpful?";
 					next;
 					if (select("Just a moment.", "I have to leave.") == 1) {
-						break;
+						continue;
 					} else {
 						if (Class == Job_Novice) {
 							mes "[Receptionist]";
@@ -2579,22 +2579,22 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 							close;
 						}
 					}
-					break;
 				case 3:
 					break;
 				case 4:
 					mes "[Receptionist]";
 					mes "Please find me, if you need anything else.";
-					if (Class == Job_Novice)
+					// if (Class == Job_Novice)
 						//ConsumeSpecialItem Inspector_Certificate_
 					close;
 				}
+				break;
 			}
 			break;
 		case 4:
 			mes "[Receptionist]";
 			mes "Please find me, if you need anything else.";
-			if (Class == Job_Novice)
+			// if (Class == Job_Novice)
 				//ConsumeSpecialItem Inspector_Certificate_
 			close;
 		}
@@ -3185,7 +3185,7 @@ iz_ac01,36,52,3	script	Odd Novice#ac	4_M_SIT_NOVICE,{
 				mes "Get away from me kid you're botherin' me.";
 				close;
 			} else {
-				if (getskilllv(NV_BASIC) > 8) {
+				if (getskilllv("NV_BASIC") > 8) {
 					mes "[Odd Novice]";
 					mes "You, talking like this, why don't you go and change your job already instead of hanging around here?";
 					mes "Hmm, did you want to be like me maybe?";
@@ -3644,7 +3644,7 @@ iz_ac01,53,74,3	script	Attribute Expert#ac	1_M_WIZARD,{
 	}
 
 OnInit:
-	questinfo 2299, QTYPE_NONE, 0;
+	questinfo 2299, QTYPE_QUEST, 0;
 	end;
 }
 
@@ -3730,7 +3730,7 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 			mes "I like the steamed horse feet of Minourus!";
 			next;
 			mes "[Dacquoise]";
-			mes "If you eat a dedicated meal, you can ^0000cd raise a specific stats^000000 and additionally, ^0000cdrecover your health^000000, so what's the reason not to cook?";
+			mes "If you eat a dedicated meal, you can ^0000cdraise a specific stats^000000 and additionally, ^0000cdrecover your health^000000, so what's the reason not to cook?";
 			next;
 			mes "[Eclaire]";
 			mes "You, do you want to know more about cooking?";
@@ -3867,7 +3867,7 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 			mes "Cooking requires some preparation but the benefits are well worth it.";
 			next;
 			mes "[Dacquoise]";
-			mes "And one thing to remember, there is ^0000cd a potential to fail in cooking^000000.  Be careful as it depends on your cookwares and cooking level.";
+			mes "And one thing to remember, there is ^0000cda potential to fail in cooking^000000.  Be careful as it depends on your cookwares and cooking level.";
 			next;
 			if (new_cook == 1) {
 				select("I want to cook!");
@@ -4067,13 +4067,13 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "It's usually eaten by people of strength.";
 				next;
 				mes "[Mille Feuille]";
-				mes "Ingredients- ^0000cd 1 Clover, 1 Green Herb, 1 Red Herb^000000.";
+				mes "Ingredients- ^0000cd1 Clover, 1 Green Herb, 1 Red Herb^000000.";
 				next;
-				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
+				cutin "Ø§ÓªÆ½Ä«Ö¥.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Clover and the Red Herb are dropped by Lunatic or Fabre monsters wandering everywhere on the field outside Izlude.";
 				next;
-				cutin "ÆÄºê¸£Ä«µå.bmp", 3;
+				cutin "?ÛªØ£Ä«Ö¥.bmp", 3;
 				mes "[Eclaire]";
 				mes "Green Herbs are dropped by Fabres.";
 				next;
@@ -4093,13 +4093,13 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "Crunchy Salad increases ^0000cdAgi^000000. Good for fast attacks and avoiding damage from monsters.";
 				next;
 				mes "[Mille Feuille]";
-				mes "Ingredients are ^0000cd 1 Apple & 2 Carrots^000000.";
+				mes "Ingredients are ^0000cd1 Apple & 2 Carrots^000000.";
 				next;
-				cutin "Æ÷¸µÄ«µå.bmp", 3;
+				cutin "Ç·ØµÄ«Ö¥.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Apples are dropped by Porings bouncing around the field outside of Izlude.";
 				next;
-				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
+				cutin "Ø§ÓªÆ½Ä«Ö¥.bmp", 3;
 				mes "[Eclaire]";
 				mes "Carrots are given by Lunatics.";
 				next;
@@ -4119,17 +4119,17 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "If you eat this, you can feel less pain from monsters.";
 				next;
 				mes "[Mille Feuille]";
-				mes "Ingredients are ^0000cd 1 Jellopy, 1 Fluff, 1 Feather^000000.";
+				mes "Ingredients are ^0000cd1 Jellopy, 1 Fluff, 1 Feather^000000.";
 				next;
-				cutin "Æ÷¸µÄ«µå.bmp", 3;
+				cutin "Ç·ØµÄ«Ö¥.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Jellopy are dropped by Porings bouncing around the field of Izlude.";
 				next;
-				cutin "ÆÄºê¸£Ä«µå.bmp", 3;
+				cutin "?ÛªØ£Ä«Ö¥.bmp", 3;
 				mes "[Eclaire]";
 				mes "Fluff can be received from Fabre or Lunatic.";
 				next;
-				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
+				cutin "Ø§ÓªÆ½Ä«Ö¥.bmp", 3;
 				mes "[Mille Feuille]";
 				mes "Feathers are dropped by Lunatics or Fabres.";
 				next;
@@ -4151,11 +4151,11 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients are-^0000cd 1 Apple & 1 Clover^000000.";
 				next;
-				cutin "Æ÷¸µÄ«µå.bmp", 3;
+				cutin "Ç·ØµÄ«Ö¥.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Apple can be found in Porings in the field outside of Izlude.";
 				next;
-				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
+				cutin "Ø§ÓªÆ½Ä«Ö¥.bmp", 3;
 				mes "[Eclaire]";
 				mes "Clovers are dropped by Lunatics or Fabre in the field outside Izlude.";
 				next;
@@ -4537,9 +4537,10 @@ L_Quest:
 		close;
 	}
 
-// OnInit:
-	//questinfo QTYPE_QUEST,4269,2,0,0,1,0,EAJ_NOVICE;
-	// end;
+OnInit:
+	questinfo 11339, QTYPE_QUEST ,0 ,Job_Novice;
+	setquestinfo_req 11339,4269,1;
+	end;
 }
 
 iz_ac01_a,59,83,3	duplicate(Battle Instructor#08)	Battle Instructor#08a	4_M_NOV_HUNT
@@ -5035,7 +5036,7 @@ new_1-3,99,169,3	script	Friendly Poring#ac	4_PORING,{
 			cutin "pet_ex_01.bmp", 3;
 			next;
 			mes "[Poring]";
-			mes "The all you have to do is ^3131FF click ^0000 the middle of the slot machine.";
+			mes "The all you have to do is ^3131FFclick ^0000 the middle of the slot machine.";
 			cutin "pet_ex_02.bmp", 3;
 			next;
 			mes "[Poring]";
@@ -5072,7 +5073,7 @@ new_1-3,99,169,3	script	Friendly Poring#ac	4_PORING,{
 		mes "They're smeggin' talkative, but they'll be loyal friends!";
 		next;
 		mes "[Poring]";
-		mes "I'd say that the ^31311F Adept adventurer ^000000 knows lots of things about pets, so you can ask him about your new Little Poring Friend.";
+		mes "I'd say that the ^31311FAdept adventurer ^000000knows lots of things about pets, so you can ask him about your new Little Poring Friend.";
 		next;
 		mes "[Poring]";
 		mes "By the way, you should have a ^3131FFportable egg incubator ^000000.";
@@ -5124,7 +5125,6 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 		mes "[Kafra Guide Trainer]";
 		mes "For those who are using the Kafra service for the first time.";
 		mes "Kafra service offers thorough information rundown~!";
-		next;
 		while(1) {
 			next;
 			mes "[Kafra Guide Trainer]";
@@ -5140,7 +5140,7 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 				mes "Easy to understand~?";
 				mes "You want to try the Save service~?";
 				next;
-				if (select("No", "Yes")) {
+				if (select("No", "Yes") == 1) {
 					mes "[Kafra Guide Trainer]";
 					mes "Don't be afraid of it~!";
 					mes "Save service doesn't swallow you.";
@@ -5173,7 +5173,7 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 				mes "You can even buy Kafra Cards from the Item Mall to open storage from anywhere!";
 				mes "Do you want to use the storage?";
 				next;
-				if (select("No", "Yes")) {
+				if (select("No", "Yes") == 1) {
 					mes "[Kafra Guide Trainer]";
 					mes "Storage is necessary for you to survive so use it regularly.";
 				} else {
@@ -5212,7 +5212,7 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 				mes "Ok, so for educational purposes I'm offering a free teleport service here at the Academy.";
 				mes "Why don't you try it out?~!";
 				next;
-				if (select("No", "Yes")) {
+				if (select("No", "Yes") == 1) {
 					mes "[Kafra Guide Trainer]";
 					mes "You afraid of having your cells spliced or something? Don't worry this is perfectly safe~!";
 					mes "This is an essential service~";
@@ -5233,7 +5233,7 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 						mes "This will take you to the outside of the Criatura Academy, is that ok?";
 						mes "If you want to come back to the academy, find the entrance to the north of Izlude.";
 						next;
-						if (select("No", "Yes")) {
+						if (select("No", "Yes") == 1) {
 							mes "[Kafra Guide Trainer]";
 							mes "You afraid of having your cells spliced or something? Don't worry this is perfectly safe~!";
 							break;
@@ -5387,7 +5387,7 @@ izlude,102,150,5	script	Wedding Secretary#iz	1_F_LIBRARYGIRL,{
 			mes "After the wedding ceremony, you can enjoy a sweet honeymoon at the ^0000cdJawaii^000000 resort only for you.";
 			next;
 			mes "[Wedding Secretary]";
-			mes "And, upon marriage you will both get a ^0000cd special skill^000000.";
+			mes "And, upon marriage you will both get a ^0000cdspecial skill^000000.";
 			next;
 			mes "[Wedding Secretary]";
 			mes "Two of these skills are called ^0000cdLoving Touch^000000 and ^0000cdUndying Love^000000 which are used to sacrifice HP or SP and send it to your partner.";
@@ -6315,7 +6315,7 @@ iz_ac02,149,43,3	script	Ragie#ac	1_M_BARD,{
 	mes "How about it? It is excellent, isn't it?";
 	next;
 	mes "[Ragie]";
-	mes "I will ^FF0000transcend ^000000 and ^FF00003rd job change^000000. Become a nice Minstrel, I can play with a famous Wanderer like Mr. Igoo.";
+	mes "I will ^FF0000transcend ^000000and ^FF00003rd job change^000000. Become a nice Minstrel, I can play with a famous Wanderer like Mr. Igoo.";
 	next;
 	while (1) {
 		switch(select("What is transcending?", "What is the 3rd job change?", "Who is Igoo?", "End Conversation")) {
@@ -7282,20 +7282,22 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 		case 4:
 			mes "[Lusa]";
 			mes "Y'all need help with that book?";
-			next;
 			while(1) {
+				next;
 				switch(select("How do I use this book?", "I can't find the skill.", "I don't have a gun....", "No more questions now.")) {
 				case 1:
 					mes "[Lusa]";
 					mes "Oh.. I think I know what the problem is,";
 					next;
 					mes "[Lusa]";
-					mes "Ta use the guide, first ya need to equip it. ^ff0000 To open the equipment window the Shortcut key is Alt + E.^000000";
+					mes "Ta use the guide, first ya need to equip it. ^ff0000To open the equipment window the Shortcut key is Alt + E.^000000";
 					next;
 					mes "[Lusa]";
 					mes "Sometimes I forget ta do that too! ^ff0000Drag the item from your inventory to the appropriate slot in the equipment window. Alternatively you can double click the item in inventory.^000000";
 					next;
-					break;
+					mes "[Lusa]";
+					mes "Do ya have any other questions?";
+					continue;
 				case 2:
 					mes "[Lusa]";
 					mes "Y'all need ta learn how to use the skill?";
@@ -7309,18 +7311,20 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 					mes "[Lusa]";
 					mes "... and thats how I learned that When in doubt, let your peco do the thinkin'.";
 					next;
-					break;
+					mes "[Lusa]";
+					mes "Do ya have any other questions?";
+					continue;
 				case 3:
 					mes "[Lusa]";
 					mes "Well, I don't think that you are quite ready to get a shootin iron. So the training book only shows ya skills that don't need guns.";
 					next;
-					break;
+					mes "[Lusa]";
+					mes "Do ya have any other questions?";
+					continue;
 				case 4:
 					break;
 				}
-				mes "[Lusa]";
-				mes "Do ya have any other questions?";
-				next;
+				break;
 			}
 			mes "[Lusa]";
 			mes "If ya need more questions you can always come back ta me.";
@@ -8204,7 +8208,7 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 						mes "Make the world wonderful by making a strong body with the right spirit. That's the Taekwondo motto!";
 						next;
 						mes "[Arang]";
-						mes "Later if you are trained to be a stronger body, you can change your job to ^FF0000Taekwon Master^000000 or a ^FF0000 Soul Linker ^000000.";
+						mes "Later if you are trained to be a stronger body, you can change your job to ^FF0000Taekwon Master^000000 or a ^FF0000Soul Linker ^000000.";
 						next;
 						mes "[Arang]";
 						mes "It is not an easy way. So I don't like to recommend it to you if you aren't fully prepared. But it is definitely a nice and great way to follow!!";
@@ -8255,7 +8259,7 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 								next;
 							} else {
 								mes "[Arang]";
-								mes "You can find a boy with the same appearance as me, when you get in the town through ^FF0000 the west entrance^000000, and continue follow the way ^FF0000to the north^000000 after passing the pub house but just before the archer town.";
+								mes "You can find a boy with the same appearance as me, when you get in the town through ^FF0000the west entrance^000000, and continue follow the way ^FF0000to the north^000000 after passing the pub house but just before the archer town.";
 								next;
 								setquest 13101;
 								cutin "", 255;
@@ -8512,7 +8516,7 @@ iz_ac02,65,109,5	script	Archer Teacher#ac	4_M_ARCHER,{
 					case 2:
 						cutin "gnor.bmp", 2;
 						mes "[Marlbron]";
-						mes "Hmm. You are interested in skills? Then, let's study ^0000cd skill^000000s.";
+						mes "Hmm. You are interested in skills? Then, let's study ^0000cdskill^000000s.";
 						next;
 						mes "[Marlbron]";
 						mes "I thought you would better experience the skill than talking, so I prepared the experience of the archer's skill in a manual.";
@@ -8543,7 +8547,8 @@ iz_ac02,65,109,5	script	Archer Teacher#ac	4_M_ARCHER,{
 						mes "But he may train you with a lot of useful hunting skills for you.";
 						mes "<NAVI>^4D4DFF[Battle Trainer Subino]^000000<INFO>iz_ac01,59,83,</INFO></NAVI>";
 						mes "You may visit him.";
-						next;
+						// next;
+						close2;
 						if (isbegin_quest(14158) != 2) {
 							setquest 14158;
 							completequest 14158;
@@ -8739,7 +8744,7 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 			switch(select("No thanks", "I want to test Swordsman Skills!", "Change me right now!")) {
 			case 1:
 				mes "[Trainer Adric]";
-				mes "Since you're not intersted in this opportunity,";
+				mes "Since you're not interested in this opportunity,";
 				next;
 				mes "[Trainer Adric]";
 				mes "Go hunt Porings and stay";
@@ -8810,18 +8815,18 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 					mes "Of course this is all up to you";
 					next;
 					mes "[Trainer Adric]";
-					mes "^0000FFVit^000000 affects^FF0000HP recovery rate^000000.";
-					mes "^0000FFStr^000000 affects ^FF0000 strength and attacking power^000000.";
-					mes "^0000FFDex^00000 increases ^FF0000 accuracy of your attack^000000,";
+					mes "^0000FFVit^000000 affects ^FF0000HP recovery rate^000000.";
+					mes "^0000FFStr^000000 affects ^FF0000strength and attacking power^000000.";
+					mes "^0000FFDex^000000 increases ^FF0000accuracy of your attack^000000,";
 					next;
 					mes "[Trainer Adric]";
-					mes "^0000FFAgi^000000 increases ^FF0000 attacking speed^000000 and ^FF0000 evasion rate^000000,";
-					mes "^0000FFLuk^000000 affects ^FF0000 probability of critical ^000000.";
+					mes "^0000FFAgi^000000 increases ^FF0000attacking speed^000000 and ^FF0000evasion rate^000000,";
+					mes "^0000FFLuk^000000 affects ^FF0000probability of critical^000000.";
 					next;
 					continue;
 				case 4:
 					mes "[Trainer Adric]";
-					mes "After changing to a Swordsman you can change to a ^0000FF Knight ^000000 or ^0000FFCrusader^000000.";
+					mes "After changing to a Swordsman you can change to a ^0000FFKnight^000000 or ^0000FFCrusader^000000.";
 					next;
 					mes "[Trainer Adric]";
 					mes "Go raise your strength while figuring out if you're offensive or defensive.";
@@ -8849,7 +8854,7 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 				mes "Go to the Battle Instructor Subino on the first floor Armory room.";
 				next;
 				mes "[Trainer Adric]";
-				mes "Raise your level to ^006400job level 10^000000 and get to ^006400 beginner's skill level 9^000000, come back here again.";
+				mes "Raise your level to ^006400job level 10^000000 and get to ^006400beginner's skill level 9^000000, come back here again.";
 				nov_3_swordman = 3;
 				if (isbegin_quest(1230))
 					erasequest 1230;
@@ -9053,17 +9058,17 @@ iz_ac02,53,48,5	script	Swordman Assistant#ac	4_M_KY_KNT,{
 						next;
 						mes "[Assitant Trainer Neals]";
 						mes "^0000FFVit^000000 affects^FF0000HP recovery rate^000000.";
-						mes "^0000FFStr^000000 affects ^FF0000 strength and attacking power^000000.";
-						mes "^0000FFDex^00000 increases ^FF0000 accuracy of your attack^000000.";
+						mes "^0000FFStr^000000 affects ^FF0000strength and attacking power^000000.";
+						mes "^0000FFDex^00000 increases ^FF0000accuracy of your attack^000000.";
 						next;
 						mes "[Trainer Adric]";
-						mes "^0000FFAgi^000000 increases ^FF0000 attacking speed^000000 and ^FF0000 evasion rate^000000.";
-						mes "^0000FFLuk^000000 affects ^FF0000 probability of critical ^000000.";
+						mes "^0000FFAgi^000000 increases ^FF0000attacking speed^000000 and ^FF0000evasion rate^000000.";
+						mes "^0000FFLuk^000000 affects ^FF0000probability of critical ^000000.";
 						next;
 						break;
 					case 4:
 						mes "[Assitant Trainer Neals]";
-						mes "After changing to a Swordsman you can change to a ^0000FF Knight ^000000 or ^0000FFCrusader^000000.";
+						mes "After changing to a Swordsman you can change to a ^0000FFKnight ^000000or ^0000FFCrusader^000000.";
 						next;
 						mes "[Assitant Trainer Neals]";
 						mes "Go raise your strength while figuring out if you're offensive or defensive.";
@@ -9419,10 +9424,10 @@ gef_fild07,89,208,6	script	Magician's Guild Guide#1	2_F_MAGICMASTER,{
 	}
 	close;
 
-// OnInit:
-	//AddQuestInfo 9265 1 0
-	//SetQuestQuest 9265 9264 1
-	// end;
+OnInit:
+	questinfo 9265, QTYPE_QUEST, 1;
+	setquestinfo_req 9265,9264,1;
+	end;
 }
 
 // - Magician's Guild Guide
@@ -9464,10 +9469,10 @@ geffen,43,123,6	script	Magician's Guild Guide#2	2_F_MAGICMASTER,{
 	}
 	close;
 
-// OnInit:
-	//AddQuestInfo 9266 1 0
-	//SetQuestQuest 9266 9265 1
-	// end;
+OnInit:
+	questinfo 9266, QTYPE_QUEST, 1;
+	setquestinfo_req 9266,9265,1;
+	end;
 }
 
 // =============================================================================
@@ -9545,23 +9550,6 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 			warp "pay_fild03", 388, 68;
 			end;
 		}
-	} else {
-		cutin "aca_salim02",2;
-		mes "[Salim Hamid]";
-		mes "Hahaha. "+strcharinfo(0)+" you have completed the Merchant theory course at the Criatura Academy.";
-		next;
-		mes "[Salim Hamid]";
-		mes "When you want to test the other battle skills in the Merchant's Manual,";
-		mes "visit <NAVI>[Battle Trainer Subino]<INFO>iz_ac01,59,83</INFO></NAVI> on the 1st floor.";
-		next;
-		mes "[Salim Hamid]";
-		mes "You can fully experience the battle related practice through him.";
-		next;
-		mes "[Salim Hamid]";
-		mes "The guide for the next course "+strcharinfo(0)+" will be serviced when you reach job level 10. Good luck.";
-		close2;
-		cutin "", 255;
-		end;
 	}
 	if (isbegin_quest(12302) < 1) {
 		cutin "aca_salim02.bmp", 2;
@@ -9737,8 +9725,8 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 		next;
 		mes "[Salim Hamid]";
 		mes "Now, what series do we start with?";
-		next;
 		while(1) {
+			next;
 			switch(select("Already know it.", "Battle Stats.", "Crafting Stats.")) {
 			case 1:
 				mes "[Salim Hamid]";
@@ -9751,7 +9739,7 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 				} else {
 					mes "[Salim Hamid]";
 					mes "Aha~ I think I got you wrong. Let's start the lecture again.";
-					next;
+					continue;
 				}
 				break;
 			case 2:
@@ -9772,8 +9760,7 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 				next;
 				mes "[Salim Hamid]";
 				mes "Any other questions?";
-				next;
-				break;
+				continue;
 			case 3:
 				mes "[Salim Hamid]";
 				mes "The stats concerning crafting is simpler than that concerning battle. Only difficulty is how to cultivate it.";
@@ -9794,9 +9781,9 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 				next;
 				mes "[Salim Hamid]";
 				mes "Any other questions?";
-				next;
-				break;
+				continue;
 			}
+			break;
 		}
 		mes "[Salim Hamid]";
 		mes "Then, it is the end of this class.";
@@ -9879,6 +9866,23 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 				end;
 		}
 	}
+	// if (JobLevel < 10) {
+	cutin "aca_salim02",2;
+	mes "[Salim Hamid]";
+	mes "Hahaha. "+strcharinfo(0)+" you have completed the Merchant theory course at the Criatura Academy.";
+	next;
+	mes "[Salim Hamid]";
+	mes "When you want to test the other battle skills in the Merchant's Manual,";
+	mes "visit <NAVI>[Battle Trainer Subino]<INFO>iz_ac01,59,83</INFO></NAVI> on the 1st floor.";
+	next;
+	mes "[Salim Hamid]";
+	mes "You can fully experience the battle related practice through him.";
+	next;
+	mes "[Salim Hamid]";
+	mes "The guide for the next course "+strcharinfo(0)+" will be serviced when you reach job level 10. Good luck.";
+	close2;
+	cutin "", 255;
+	end;
 }
 
 iz_ac02_a,50,169,3	duplicate(Salim Hamid#ac)	Salim Hamid#ac_a	1_M_MERCHANT
@@ -10656,17 +10660,16 @@ iz_ac02,52,136,3	script	Guest Lecturer Mayssel#0	4_F_MAYSEL,{
 		}
 	}
 
-// OnInit:
-	//AddQuestInfo 7480 0 0
-	//SetQuestQuest 7480 4269 2
-	//SetQuestJob 7480 NOVICE
-	//AddQuestInfo 7483 0 0
-	//SetQuestQuest 7483 7481 1
-	//SetQuestQuest 7483 7482 1
-	//AddQuestInfo 7495 0 0
-	//SetQuestQuest 7495 7484 2
-	//SetQuestQuest 7495 7485 3
-	// end;
+OnInit:
+	questinfo 7480, QTYPE_QUEST, 0, Job_Novice;
+	setquestinfo_req 7480,4269,1;
+	questinfo 7483, QTYPE_QUEST, 0;
+	setquestinfo_req 7483,7481,1;
+	setquestinfo_req 7483,7482,1;
+	// questinfo 7495, QTYPE_QUEST, 0;// officially disabled
+	// setquestinfo_req 7495,7484,2;
+	// setquestinfo_req 7495,7485,3;
+	end;
 }
 
 iz_ac02_a,52,136,3	duplicate(Guest Lecturer Mayssel#0)	Guest Lecturer Mayssel#a	4_F_MAYSEL
@@ -10726,7 +10729,7 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 				next;
 				mes "[Vicente]";
 				mes "Rogues are for ^4d4dffdisarming the enemy's armor^000000 or ^4d4dffstealing better than a thief^000000.";
-				mes "or ^4d4dff fall back after suddenly being attacked^000000";
+				mes "or ^4d4dfffall back after suddenly being attacked^000000";
 				next;
 				mes "[Vicente]";
 				mes "Hmmhmmm. It may look cowardish but it is upgraded from a thief.";
@@ -11003,19 +11006,19 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 					mes "First, equip the Thief Manual.";
 					next;
 					mes "[Vicente]";
-					mes "You can either double click ^4d4dff the items to be equipped^000000 or drag it to the equipment window.";
+					mes "You can either double click ^4d4dffthe items to be equipped^000000 or drag it to the equipment window.";
 					next;
 					mes "[Vicente]";
 					mes "Then, open the skill window, you can find the added skills in the 'Misc' tab.";
 					mes "You can even set the skills in the shortcut bar.";
 					next;
 					mes "[Vicente]";
-					mes "Now, out of them, there is a skill called ^4d4dff Steal^000000.";
+					mes "Now, out of them, there is a skill called ^4d4dffSteal^000000.";
 					next;
 					mes "[Vicente]";
 					mes "Here is an assignment.";
 					mes "Can you see the ornamental Poring cage?";
-					mes "Steal ^4d4dff one Stone from Poring by using the Steal skill.^000000";
+					mes "Steal ^4d4dffone Stone from Poring by using the Steal skill.^000000";
 					next;
 					mes "[Vicente]";
 					mes "Steal has a possibility to fail so don't quit.";
@@ -11186,12 +11189,12 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 		}
 	}
 
-// OnInit:
-	//AddQuestInfo 7481 0 0
-	//SetQuestQuest 7481 7480 1
-	//AddQuestInfo 7484 0 0
-	//SetQuestQuest 7484 7483 1
-	// end;
+OnInit:
+	questinfo 7481, QTYPE_QUEST, 0;
+	setquestinfo_req 7481,7480,1;
+	questinfo 7484, QTYPE_QUEST, 0;
+	setquestinfo_req 7484,7483,1;
+	end;
 }
 
 iz_ac02_a,49,134,5	duplicate(Vicente#ac)	Vicente#ac_a	4_M_HUMAN_02
@@ -11626,12 +11629,12 @@ iz_ac02,55,134,3	script	Verkhasel#ac	4_M_GUILLOTINE,{
 		}
 	}
 
-// OnInit:
-	//AddQuestInfo 7482 0 0
-	//SetQuestQuest 7482 7480 1
-	//AddQuestInfo 7485 0 0
-	//SetQuestQuest 7485 7483 1
-	// end;
+OnInit:
+	questinfo 7482, QTYPE_QUEST, 0;
+	setquestinfo_req 7482,7480,1;
+	questinfo 7485, QTYPE_QUEST, 0;
+	setquestinfo_req 7485,7483,1;
+	end;
 }
 
 iz_ac02_a,55,134,3	duplicate(Verkhasel#ac)	Verkhasel#ac_a	4_M_GUILLOTINE
@@ -11673,7 +11676,7 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 			} else {
 				mes "[Lumin]";
 				mes ".... Good!";
-				mes "Now, ^4d4dff speak to me once you finish hunting 4 porings in 30 seconds.^000000";
+				mes "Now, ^4d4dffspeak to me once you finish hunting 4 porings in 30 seconds.^000000";
 				setquest 7487;
 				close2;
 				cutin "", 255;
@@ -11797,10 +11800,10 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 		}
 	}
 
-// OnInit:
-	//AddQuestInfo 7487 0 0
-	//SetQuestQuest 7487 7485 1
-	// end;
+OnInit:
+	questinfo 7487, QTYPE_QUEST, 0;
+	setquestinfo_req 7487,7485,1;
+	end;
 }
 
 iz_ac02_a,62,139,3	duplicate(Lumin#ac)	Lumin#ac_a	4_M_NOV_RUMIN
@@ -11815,6 +11818,7 @@ iz_ac02,1,1,0	script	#nbacStone01	CLEAR_NPC,{
 
 OnInit:
 	donpcevent "#"+strnpcinfo(2)+"::OnSpawn";
+	setcell "iz_ac02",58,142,63,144,cell_icewall,1;// allow monster to drop in area
 	end;
 
 OnReset:
@@ -11847,6 +11851,7 @@ iz_ac02,1,1,0	script	#nbacStone02	CLEAR_NPC,{
 
 OnInit:
 	donpcevent "#"+strnpcinfo(2)+"::OnSpawn";
+	setcell "iz_ac02",58,136,63,138,cell_icewall,1;
 	end;
 
 OnReset:
@@ -11879,6 +11884,7 @@ iz_ac02,1,1,0	script	#nbacStone03	CLEAR_NPC,{
 
 OnInit:
 	donpcevent "#"+strnpcinfo(2)+"::OnSpawn";
+	setcell "iz_ac02",58,130,63,132,cell_icewall,1;
 	end;
 
 OnReset:
@@ -12269,7 +12275,7 @@ iz_ac02,140,139,5	script	Ninja Guide#ac	4_M_NINJA_BLUE,{
 					mes "There are two major status which affect the degree of damages.";
 					mes "One is ^ff0000Power^000000, the other is ^ff0000Intelligence^000000,";
 					mes "Power affects the damages by^8E2323 physical attacks^000000 and^8E2323 throwing attacks^000000.";
-					mes "Intelligence affects the damage by ^8E2323 Ninja's skill ^000000";
+					mes "Intelligence affects the damage by ^8E2323Ninja's skill ^000000";
 					next;
 					mes "[Ninja Guide]";
 					mes "In addition to these, you can learn";
@@ -12325,7 +12331,7 @@ iz_ac02,140,139,5	script	Ninja Guide#ac	4_M_NINJA_BLUE,{
 		case 2:
 			if (getskilllv("NV_BASIC") < 9) {
 				mes "[Ninja Guide]";
-				mes "I appreicate your braveness but, first of all, you have to be familiar with the current profession.";
+				mes "I appreciate your braveness but, first of all, you have to be familiar with the current profession.";
 				next;
 				mes "[Ninja Guide]";
 				mes "Before you decide to become a Ninja,";
@@ -12476,7 +12482,7 @@ izlude,153,126,1	script	Refinery Owner Han#iz	4_M_02,{
 			mes "But I subscribe to the idea that seeing is believing... You know what I mean? Try it out yourself instead of asking questions.";
 			close;
 		case 4:
-			break;
+			close;
 		}
 	} else if (.@jerun_tutorial == 2) {
 		mes "[Refinery Owner Han]";
@@ -12630,11 +12636,10 @@ izlude,153,126,1	script	Refinery Owner Han#iz	4_M_02,{
 			mes "It might be better for you to ask questions of the staff you met before.";
 			next;
 			mes "[Refinery Owner Han]";
-			mes "You can ask the explanations concerning ^FD4F02 weapon levels^000000 and ^FD4F02saftey refining ^000000, to ^142CEBMr. Tadde^000000, concerning ^FD4F02 refining price^000000 and ^FD4F02 refining effect^000000, ^142CEB to Mr. Locas^000000.";
+			mes "You can ask the explanations concerning ^FD4F02weapon levels^000000 and ^FD4F02saftey refining ^000000, to ^142CEBMr. Tadde^000000, concerning ^FD4F02refining price^000000 and ^FD4F02refining effect^000000, ^142CEBto Mr. Locas^000000.";
 			next;
 			mes "[Refinery Owner Han]";
 			mes "He will give you kind answers.";
-			next;
 			close;
 		case 4:
 			break;
@@ -12646,10 +12651,10 @@ izlude,153,126,1	script	Refinery Owner Han#iz	4_M_02,{
 		close;
 	}
 
-// OnInit:
-	//AddQuestInfo 5153 1 0
-	//SetQuestLevel 5153 1 20
-	// end;
+OnInit:
+	questinfo 5153, QTYPE_QUEST, 1;
+	setquestinfo_level 5153,1,20;
+	end;
 }
 
 izlude_a,153,126,1	duplicate(Refinery Owner Han#iz)	Refinery Owner Han#iz_a	4_M_02
@@ -12812,7 +12817,7 @@ izlude_d,153,126,1	duplicate(Refinery Owner Han#iz)	Refinery Owner Han#iz_d	4_M_
 	}
 	if (countitem(.@material) > 0 && Zeny >= .@price) {
 		delitem .@material, 1;
-		Zeny -= .@material;
+		Zeny -= .@price;
 	} else {
 		mes "[Refining Machine Wagjak]";
 		mes "^FF0000- error number 8282 -^000000";
@@ -13015,8 +13020,8 @@ izlude,145,122,7	script	Tadde#iz	4_M_04,{
 	case 3:
 		mes "[Tadde]";
 		mes "Any questions about the weapon level and safety refining?";
-		next;
 		while(1) {
+			next;
 			switch(select("Weapon level", "Safety refining.", "Finish the question.")) {
 			case 1:
 				mes "[Tadde]";
@@ -13027,13 +13032,12 @@ izlude,145,122,7	script	Tadde#iz	4_M_04,{
 				next;
 				mes "[Tadde]";
 				mes "Considering the customers coming to refine, the ones for refining level 1,2 weapons are more than those for level 3,4 weapons.";
-				next;
-				break;
+				continue;
 			case 2:
 				mes "[Tadde]";
 				mes "Safety refining differs from the levels of Armor or weapon, so basically each level has a ^3E86C3different safe upgrade level.^000000";
-				next;
 				while(1) {
+					next;
 					switch(select("Level 1 Weapon", "Level 2 Weapon", "Level 3 Weapon", "Level 4 Weapon", "Armor", "Question finished")) {
 					case 1:
 						mes "[Tadde]";
@@ -13041,51 +13045,47 @@ izlude,145,122,7	script	Tadde#iz	4_M_04,{
 						next;
 						mes "[Tadde]";
 						mes "Of course, it has stronger effect than level 1 weapon.";
-						next;
-						break;
+						continue;
 					case 2:
 						mes "[Tadde]";
 						mes "Level 2 weapons are safe when refined up to ^A20B09+6^000000, even though refining figure is lower than level 1 weapon.";
 						next;
 						mes "[Tadde]";
 						mes "Of course, it has stronger effect than level 1 weapon.";
-						next;
-						break;
+						continue;
 					case 3:
 						mes "[Tadde]";
 						mes "Level 3 weapons are safe when refined up to ^A20B09+5^000000. Simply speaking, it looks like the safety refining goes down by 1 according to each weapon level.";
 						next;
 						mes "[Tadde]";
 						mes "The higher the weapon is, the increasing effect of +1 becomes higher as well.";
-						next;
-						break;
+						continue;
 					case 4:
 						mes "[Tadde]";
 						mes "Level 4 weapons are safe up to ^A20B09+4^000000. Numbers of level 4 weapons are so rare that not so many customers bring them here.";
 						next;
 						mes "[Tadde]";
 						mes "As it is one of the most luxurious weapons, the effect of refining is the strongest.";
-						next;
-						break;
+						continue;
 					case 5:
 						mes "[Tadde]";
 						mes "Armors are safe when refined up to^A20B09+4^000000, just like a level 4 weapon.";
 						next;
 						mes "[Tadde]";
 						mes "As most refiners are used to making weapons it's hard for them to safely upgrade armors.";
-						next;
-						break;
+						continue;
 					case 6:
 						mes "[Tadde]";
 						mes "You look like you've had enough explanations about the safety refining.";
-						next;
 						break;
 					}
+					break;
 				}
-				break;
+				continue;
 			case 3:
 				break;
 			}
+			break;
 		}
 		mes "[Tadde]";
 		mes "This is all I can explain to you.";
@@ -13126,13 +13126,13 @@ izlude,155,132,3	script	Locas#iz	4_M_02,{
 		mes "Anyway, the employee should do what the owner wants him to do... Ask me your questions.";
 		next;
 		while(1) {
-			switch(select("Refining Price", "Fefining Effect", "End the Conversation.")) {
+			switch(select("Refining Price", "Refining Effect", "End the Conversation.")) {
 			case 1:
 				mes "[Locas]";
 				mes "Perhaps the most important thing my owner thinks is this...";
 				next;
 				mes "[Locas]";
-				mes "From the word itself, refining price is ^3E86C3 the charge to refine once^000000.";
+				mes "From the word itself, refining price is ^3E86C3the charge to refine once^000000.";
 				next;
 				mes "[Locas]";
 				mes "But, there are ^3E86C3differences in the essential material according the zeny and weapon level.^000000.";
@@ -13157,7 +13157,7 @@ izlude,155,132,3	script	Locas#iz	4_M_02,{
 						continue;
 					case 3:
 						mes "[Locas]";
-						mes "Refining of level 3 weapons requires ^3E86C3 Oridecon and 10,000 zeny.^000000.";
+						mes "Refining of level 3 weapons requires ^3E86C3Oridecon and 10,000 zeny.^000000.";
 						next;
 						mes "[Locas]";
 						mes "Oridecon is such a rare metal that I don't sell it... But,";
@@ -13168,7 +13168,7 @@ izlude,155,132,3	script	Locas#iz	4_M_02,{
 						continue;
 					case 4:
 						mes "[Locas]";
-						mes "Refining level 4 weapons requires ^3E86C3 Oridecon and 20,000 zeny.^000000.";
+						mes "Refining level 4 weapons requires ^3E86C3Oridecon and 20,000 zeny.^000000.";
 						next;
 						mes "[Locas]";
 						mes "Elunium is as rare a metal as Oridecon, like Oridecon, if you bring me 5 Rough Elunium obtainable from some monsters, I will refine them to make a Elunium for you.";
@@ -13334,10 +13334,10 @@ izlude,155,132,3	script	Locas#iz	4_M_02,{
 		mes "Though I can't explain a lot.... What's your question?";
 		next;
 		while(1) {
-			switch(select("refining price", "refining effect", "Finish the explanation.")) {
+			switch(select("Refining price", "Refining effect", "Finish the explanation.")) {
 			case 1:
 				mes "[Locas]";
-				mes "Â©Ã¶From the word itself, refining price is ^3E86C3 the price for refining once^000000.";
+				mes "From the word itself, refining price is ^3E86C3the price for refining once^000000.";
 				next;
 				mes "[Locas]";
 				mes "But, there are differences in the essential material according the (zeny) and weapon level.";
@@ -13362,7 +13362,7 @@ izlude,155,132,3	script	Locas#iz	4_M_02,{
 						continue;
 					case 3:
 						mes "[Locas]";
-						mes "Refining of level 3 weapons requires ^3E86C3 Oridecon and 10,000 zeny.^000000.";
+						mes "Refining of level 3 weapons requires ^3E86C3Oridecon and 10,000 zeny.^000000.";
 						next;
 						mes "[Locas]";
 						mes "Oridecon is such a rare metal that I don't sell it... But,";
@@ -13373,7 +13373,7 @@ izlude,155,132,3	script	Locas#iz	4_M_02,{
 						continue;
 					case 4:
 						mes "[Locas]";
-						mes "Refining level 4 weapons requires ^3E86C3 Oridecon and 20,000 zeny.^000000.";
+						mes "Refining level 4 weapons requires ^3E86C3Oridecon and 20,000 zeny.^000000.";
 						next;
 						mes "[Locas]";
 						mes "Elunium is as rare a metal as Oridecon, like Oridecon, if you bring me 5 Rough Elunium obtainable from some monsters, I will refine them to make a Elunium for you.";
@@ -13472,14 +13472,14 @@ izlude,96,125,7	script	Enchanter Mounds#iz	4_CAT_SAILOR2,{
 	.@in_tutorial = isbegin_quest(5157) + isbegin_quest(5158) + isbegin_quest(5159);
 	if (.@in_tutorial == 0) {
 		mes "[Mounds]";
-		mes "Welcome. Welcome to the enchant association. I am ^142CEB Mounds^000000- head of Izlude branch of the Enchant association.";
+		mes "Welcome. Welcome to the enchant association. I am ^142CEBMounds^000000- head of Izlude branch of the Enchant association.";
 		next;
 		select("Oh... a cat can speak???");
 		mes "[Mounds]";
 		mes "Have you never seen a talking cat?";
 		next;
 		mes "[Mounds]";
-		mes "There is an island called ^FD4F02 Malangdo^000000 where only cats live and I am from there.";
+		mes "There is an island called ^FD4F02Malangdo^000000 where only cats live and I am from there.";
 		next;
 		mes "[Mounds]";
 		mes "There are cats like me who can speak the human language very well, but some cats speaking human and cat language are a mess.";
@@ -13492,12 +13492,12 @@ izlude,96,125,7	script	Enchanter Mounds#iz	4_CAT_SAILOR2,{
 		mes "The Enchant Association is the group made by those of us who can enchant.";
 		next;
 		mes "[Mounds]";
-		mes "This association is composed of two divisions of ^FD4F02the socket enchant division^000000 and ^FD4F02 the hidden enchant division^000000.";
+		mes "This association is composed of two divisions of ^FD4F02the socket enchant division^000000 and ^FD4F02the hidden enchant division^000000.";
 		next;
 		mes "[Mounds]";
 		mes "Maybe, are you curious about each division?";
-		next;
 		while(1) {
+			next;
 			switch(select("Socket Enchant?", "Hidden Enchant", "Question finished")) {
 			case 1:
 				mes "[Mounds]";
@@ -13536,8 +13536,7 @@ izlude,96,125,7	script	Enchanter Mounds#iz	4_CAT_SAILOR2,{
 				next;
 				mes "[Mounds]";
 				mes "It is called socket enchant. Are you curious about the other division?";
-				next;
-				break;
+				continue;
 			case 2:
 				mes "[Mounds]";
 				mes "Ah ! Are you curious about the hidden enchant?";
@@ -13558,15 +13557,14 @@ izlude,96,125,7	script	Enchanter Mounds#iz	4_CAT_SAILOR2,{
 				mes "His technology reinforced the equipment with a gem that had special properties similar to monster cards.";
 				next;
 				mes "[Mounds]";
-				mes "That technology has been developed and improved to make the current ^FD4F02 Enchant association ^000000";
+				mes "That technology has been developed and improved to make the current ^FD4F02Enchant association ^000000";
 				next;
 				mes "[Mounds]";
 				mes "Briefly speaking, to make a stronger equipment with a special enchantment is the hidden enchant.";
 				next;
 				mes "[Mounds]";
 				mes "Are you curious about the other division?";
-				next;
-				break;
+				continue;
 			case 3:
 				break;
 			}
@@ -13816,10 +13814,10 @@ izlude,96,125,7	script	Enchanter Mounds#iz	4_CAT_SAILOR2,{
 		close;
 	}
 
-// OnInit:
-	//AddQuestInfo 5157 1 0
-	//SetQuestLevel 5157 1 20
-	// end;
+OnInit:
+	questinfo 5157, QTYPE_QUEST, 1;
+	setquestinfo_level 5157,1,20;
+	end;
 }
 
 izlude_a,96,125,7	duplicate(Enchanter Mounds#iz)	Enchanter Mounds#iz_a	4_CAT_SAILOR2
@@ -13847,7 +13845,6 @@ izlude,108,139,7	script	Enchanter Almond J#iz	4_CAT_SAILOR3,{
 		enable_items;
 		end;
 	} else if (.@in_tutorial == 4) {
-		.@equip = getequipid(EQI_ARMOR);
 		.@part = EQI_ARMOR;
 		mes "[Almond J]";
 		mes "Welcome.. I have been waiting for you. Are you coming for the hidden enchant service on your cotton shirt?";
@@ -13880,7 +13877,7 @@ izlude,108,139,7	script	Enchanter Almond J#iz	4_CAT_SAILOR3,{
 			enable_items;
 			end;
 		}
-		if (!.@equip) {
+		if (!getequipisequiped(.@part)) {
 			mes "[Almond J]";
 			mes "Please come back after you have equipped the Cotton Shirt.";
 			close2;
@@ -13903,7 +13900,7 @@ izlude,108,139,7	script	Enchanter Almond J#iz	4_CAT_SAILOR3,{
 		progressbar "ffff00", 2;
 		completequest 5159;
 		delequip .@part;
-		setarray .@equip_card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
+		setarray .@equip_card[0], getequipcardid(.@part,0), getequipcardid(.@part,1);
 		getitem2 2302,1,1,.@refineCount,0,.@equip_card[0],.@equip_card[1],4800,4795;// Cotton_Shirt_ ; SP50 ; HP100
 		mes "[Almond J]";
 		mes "Zzazanzn!! Completed!!";
@@ -13932,7 +13929,7 @@ izlude,108,139,7	script	Enchanter Almond J#iz	4_CAT_SAILOR3,{
 		end;
 	} else if (.@in_tutorial == 6) {
 		mes "[Almond J]";
-		mes "Heh heh... how are you? I am doing a ^142CEB service of free hidden enchant for the beginner's weapon to advertise the enchant association.^000000.";
+		mes "Heh heh... how are you? I am doing a ^142CEBservice of free hidden enchant for the beginner's weapon to advertise the enchant association.^000000.";
 		next;
 	} else {
 		mes "[Almond J]";
@@ -13973,21 +13970,22 @@ izlude,108,139,7	script	Enchanter Almond J#iz	4_CAT_SAILOR3,{
 	}
 
 	.@part = EQI_HAND_R;
-	.@equip = getequipid(.@part);
-	.@equip_refine = getequiprefinerycnt(.@part);
-	setarray .@equip_card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
 
-	if (!.@equip) {
+	if (!getequipisequiped(.@part)) {
 		mes "[Almond J]";
 		mes "Hehehe... hidden enchant makes me excited. But you should come back with your weapon armed.";
 		close2;
 		enable_items;
 		end;
 	}
+	.@equip = getequipid(.@part);
+	.@equip_refine = getequiprefinerycnt(.@part);
+	setarray .@equip_card[0], getequipcardid(.@part,0), getequipcardid(.@part,1);
+
 	mes "[Almond J]";
 	switch(.@equip) {
 	case 1243: // Novice_Knife
-		mes "It is!! ^142ceb the Novice Knife^000000.";
+		mes "It is!! ^142cebthe Novice Knife^000000.";
 		next;
 		mes "[Almond J]";
 		mes "But this weapon might be strange to add a hidden enchant? Sorry.";
